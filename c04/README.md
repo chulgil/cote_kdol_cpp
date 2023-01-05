@@ -70,36 +70,3 @@ for 선택 in 선택리스트:
 
 
 ```
-
-```mermaid
-
-erDiagram
-
-%% Let's do it again, with flair. I define the entity relationships with Notion-style language: 
-
-Orders }o--|{ Products : "two-way relation"
-Customers }|--o{ Orders : "two-way relation"
-Customers }o--o{ Products : "rollup through Orders"
-
-%% and set out the key relationships, rollups, and formulas, too. Probably the relations here are redundant, but it's nice to be reminded when reading. 
-
-Customers {
-	relation Orders
-	rollup-Products-thru-Orders orderedProducts
-  rollup-sum-Orders-total lifetimeValue
-}
-
-Orders {
-	relation Customer
-	relation Products
-  rollup-sum-Products-price rollupTotal
-  formula-as total
-}
-
-Products {
-	relation Orders
-	rollup-Customers-thru-Orders purchasedBy
-  number price
-}
-
-```
