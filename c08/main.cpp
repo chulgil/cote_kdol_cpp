@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int minINsertions2(string s) {
+int minInsertions(string s) {
     string rev = s;
     reverse(rev.begin(), rev.end());
     s += '#';
@@ -26,7 +26,7 @@ int minINsertions2(string s) {
     return n / 2 - lps[n - 1];
 }
 
-int minInsertions(string s) {
+int minInsertions2(string s) {
     int n = s.size();
     vector<vector<int>> dp(n, vector<int>(n, 0));
 
@@ -43,28 +43,34 @@ int minInsertions(string s) {
     return dp[0][n - 1];
 }
 
-int minInsertions(string s) {
+int minInsertions3(string s) {
     int n = s.size();
     vector<int> dp(n, 0);
 
     int temp = 0;
     for (int i = n - 2; i >= 0; i--) {
         int pre = 0; // dp[i+1][i-1] 기록
-        for (int j = i + 1; j < n ; j++) {
+        for (int j = i + 1; j < n; j++) {
             temp = dp[j];
-
-            if (s[i] == s[j] ) {
-                
+            if (s[i] == s[j]) {
+                // dp[i][j] = dp[i + 1][j - 1];
+                dp[j] = pre;
+            } else {
+                // dp[i][j] = min(dp[i + 1][j], dp[i][j - 1]) + 1;
+                dp[j] = min(dp[j], dp[j - 1]) + 1;
             }
         }
+        pre = temp;
     }
+
+    return dp[n - 1];
 }
 
 int main(void) {
 
     string s = "ACBABCADE";
 
-    int res = minINsertions2(s);
+    int res = minInsertions(s);
 
     cout << res << '\n';
 }
