@@ -14,8 +14,6 @@ int main() {
     cout << name << '\n';
 
     // lee 추가하기
-    name += "lee";
-    cout << name << '\n';
-
+    cout << name + "lee" << '\n';
     return 0;
 }
