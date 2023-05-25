@@ -1,19 +1,27 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
-string name = "chulgil";
-
 int main() {
+    int a[] = {1, 2, 3};
+    do {
+        for (int i : a)
+            cout << i << " ";
+        cout << '\n';
+    } while (next_permutation(&a[0], &a[0] + 3));
 
-    // 앞에서 부터 3개 출력
-    cout << name.substr(0, 3) << '\n';
+    int b[] = {1, 2, 3};
+    do {
+        for (int i : b)
+            cout << i << " ";
+        cout << '\n';
+    } while (next_permutation(b, b + 3));
 
-    // 거꾸로
-    reverse(name.begin(), name.end());
-    cout << name << '\n';
+    vector<int> v = {1, 2, 3};
+    do {
+        for (int i : v)
+            cout << i << " ";
+        cout << '\n';
+    } while (next_permutation(v.begin(), v.end()));
 
-    // lee 추가하기
-    cout << name + "lee" << '\n';
     return 0;
 }
