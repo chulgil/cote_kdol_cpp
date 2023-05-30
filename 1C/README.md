@@ -1,5 +1,5 @@
 
-## 2979번 - 트럭 주차 다국어
+## 2979번 - 트럭 주차
 > Ref : https://www.acmicpc.net/problem/2309
 
 ## 문제
